@@ -81,9 +81,8 @@ public class Vigilante_dao implements Serializable {
 			if(conexion.getConnection()==null) con = conexion.conectar("Usuario.registrarUsuario");
 			else con= conexion.getConnection();
 			String sql = "SELECT * FROM vigilante "
-					+    "WHERE codigo = ? ";
-			ps = con.prepareStatement(sql);
-			ps.setLong(1, codigo);
+					+    "WHERE codigo = "+codigo+" ";
+			ps = con.prepareStatement(sql);			
 			rst = ps.executeQuery();
 			
 			if(rst.next()){

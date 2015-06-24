@@ -28,7 +28,8 @@ public class VerificarSesion implements Serializable {
 			String password = vigi.getPassword();
 			vigi= vigilante.buscarUsuario(vigi.getCodigo());
 			if (vigilante!=null){ 
-				if (!password.equals(vigi.getPassword())) vigilante=null;
+				if (!password.equals(vigi.getPassword())) 
+                                    vigi=null;
 			} 
 		} catch (Exception e) {
 			e.printStackTrace();
