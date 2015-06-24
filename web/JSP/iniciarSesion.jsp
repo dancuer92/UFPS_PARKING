@@ -23,18 +23,15 @@
             <div id="sesion" align="center">Iniciar Sesión</div>
             
             <div id="contenido1">
-            <%
-                String login="";
+                <div id="user">Usuario</div> 
+                <div id=user><input type="text" name="usuario"   placeholder="Usuario"></div>
+                <br><br>
+                <div id="user">Contraseña</div>
+                <div id="user"><input type="password" name="contraseña"  placeholder="Contaseña"></div>
+                <div id="olvido"  align="center" >¿Olvido su contraseña?</div>
+                <div id="boton"  align="center"><a href="ingreso.jsp"><button name="inicio" type="submit" value="enviar">Iniciar sesión</button></a></div>
                 
-               login+="<div id=\"user\">"+"Usuario"+"</div>"; 
-               login+="<div id=\"user\">"+"<input type=\"text\" name=\"usuario\"   placeholder=\"Usuario\">"+"</div>";
-               login+="<br><br>";
-               login+="<div id=\"user\">"+"Contraseña"+"</div>";
-               login+="<div id=\"user\">"+"<input type=\"password\" name=\"contraseña\"  placeholder=\"Contaseña\">"+"</div>";
-               login+="<div id=\"olvido\"  align=\"center\" >"+"¿Olvido su contraseña?"+"</div>";
-               login+="<div id=\"boton\"  align=\"center\">"+"<a href=\"ingreso.jsp\">"+"<button name=\"inicio\" type=\"submit\" value=\"enviar\">"+"Iniciar sesión"+"</button>"+"</a>"+"</div>";
-               out.print(login);
-                %>
+            
             
             </div>
                 
