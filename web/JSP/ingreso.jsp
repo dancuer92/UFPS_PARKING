@@ -22,37 +22,28 @@
 
         <div id="sesion" align="center">Bienvenido </div>
 
-        <jsp:useBean id="usuario" scope="session" class="co.edu.ufps.casinoWeb.dto.Usuario"/>
-        <jsp:setProperty property="*" name="usuario"/>
-        <jsp:useBean id="juego" scope="session" class="co.edu.ufps.casinoWeb.dto.Juego21"/>
-        <jsp:useBean id="facade" scope="page" class="co.edu.ufps.casinoWeb.facade.Juego21Facade"/>
+        <jsp:useBean id="vigilante" scope="session" class="co.edu.ufps.parking.dto.Vigilante_dto"/>
+        <jsp:setProperty property="*" name="vigilante"/>
+        <jsp:useBean id="facade" scope="page" class="co.edu.ufps.parking.facade.Facade"/>
         
         <%
-            String estado = request.getParameter("txtEstado");
+            
             String mensaje = "";
-            if (estado==null) estado="";
+            
 
             // verificar el login del usuario
-            usuario = facade.verificarLogin(usuario);
-            if (usuario == null) {
-                mensaje = "Datos erroneos. Por favor verifique.";
+            vigilante = facade.verificarLogin(vigilante);
+            if (vigilante == null) {
+                mensaje = "Datos erroneos, por favor verifique.";
             } else {
                 mensaje = "ok";
             }
 
             if (mensaje.equals("ok")) {
+                response.sendRedirect("ganador.jsp");
+            }
 
-                juego.setNombreJugador(usuario.getNombreUsuario());
-
-                if (estado.equals("")) {
-                    facade.iniciarJuego(juego);
-                }
-
-                /*
-                 if (estado.equals("PedirCarta")){
-                 mensaje = juego.pedirCarta();
-                 if (!mensaje.equals("")) response.sendRedirect("ganador.jsp");
-                 }*/
+                
         %>
 
 
