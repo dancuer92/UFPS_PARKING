@@ -40,7 +40,7 @@
             }
 
             if (mensaje.equals("ok")) {
-                response.sendRedirect("ganador.jsp");
+                response.sendRedirect("inicio.jsp");
             }
 
                 
