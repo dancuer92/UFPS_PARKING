@@ -21,11 +21,12 @@
     
         String codigo=request.getParameter("codigo");
         String placa=request.getParameter("placa");
-        String marca=request.getParameter("marca");
-        String modelo=request.getParameter("modelo");
-        String color=request.getParameter("color");
+        String nombre=request.getParameter("nombre");
+        String apellido=request.getParameter("apellido");
+        String telefono=request.getParameter("telefono");
+        String correo=request.getParameter("correo");
         
-        msj=facade.añadirCarro(codigo, placa, marca, modelo, color);
+        msj=facade.añadirPersona(placa, codigo, nombre, apellido, telefono, correo);
     %>
     
     <body>
