@@ -1,6 +1,6 @@
 <%-- 
-    Document   : RegistrarEntrada
-    Created on : 24/06/2015, 12:29:20 AM
+    Document   : ConsultaEntrada
+    Created on : 24/06/2015, 03:19:34 AM
     Author     : Daniel
 --%>
 
@@ -17,20 +17,12 @@
 <%
 
     Facade facade = new Facade();
-    String carros = "";
+
     String msj = "";
 
     String codigo = request.getParameter("codigo");
-    
 
-    carros = facade.listarCarros(codigo);
-
-    String[] placas = carros.split("-");
-    for (int i = 0; i < placas.length; i++) {
-        msj+="<option name=\"placa"+i+"\" id=\"placa"+i+"\" value=\""+placas[i]+"\"/option>";
-    }
-    
-    
+    msj = facade.listarEntradasSalidas(codigo);
 
 %>
 
@@ -46,20 +38,14 @@
 
         <div id="contenido">
 
-            <form id="formRegistrarEntrada" name="formRegistrarEntrada" method="post" action="guardarEntrada.jsp">
-                <div id="codigo">Usuario: <%= codigo%></div>
-                <input type="hidden" name="codigo" id="codigo" value="<%= codigo%>"/>;
-                <select name="placas">
-                    <%=msj%>
-                </select>
-                
-                <div id="boton"  align="center"><a href="guardarEntrada.jsp"><button name="registrar" type="submit" value="registrar">Guardar Entrada</button></a></div>;
-            </form>
-            
-            
-               
-            
-            
+            <div id="codigo">Usuario: <%= codigo%></div>
+
+            <%=msj%>
+
+
+
+
+
 
             <a href="inicio.jsp" align="center">Volver a Inicio</a>
 

@@ -31,11 +31,10 @@
 
                 <div id="li"><a href="Entrada.jsp">Registrar Entrada</a> </div>
                 <div id="li"><a href="Salida.jsp">Registrar Salida</a></div>
-                <div id="li"><a href="ConsultarEntrada.jsp">Consultar Entrada</a></div>
+                <div id="li"><a href="ConsultarEntradaSalida.jsp">Consultar Entrada y Salidas de un Usuario</a></div>
                 <div id="li"><a href="ConsultarUsuario.jsp">Consultar Usuario</a></div>
-                <div id="li"><a href="ConsultarVehiculo.jsp">Consultar Vehículo</a></div>
-                <div id="li"><a href="ConsultarSalida.jsp">Consultar Salida</a></div>
-                <div id="li"><a href="CerrarSesion.jsp">Cerrar Sesión</a></div>
+                <div id="li"><a href="ConsultarVehiculo.jsp">Consultar Vehículo</a></div>                
+                <div id="li"><a href="index.jsp">Cerrar Sesión</a></div>
 
             </div>
          

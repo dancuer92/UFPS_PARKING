@@ -1,5 +1,5 @@
 <%-- 
-    Document   : guardarEntrada
+    Document   : guardarSalida
     Created on : 24/06/2015, 01:19:44 AM
     Author     : Daniel
 --%>
@@ -24,7 +24,7 @@
         
         
         
-        msj=facade.registrarEntrada(codigo, placa);
+        msj=facade.registrarSalida(codigo, placa);
     %>
     
     <body>

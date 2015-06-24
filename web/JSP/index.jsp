@@ -34,7 +34,7 @@
                 <div id="li"><a href="iniciarSesion.jsp">Iniciar Sesión</a> </div>
                 <div id="li"><a href="RegistrarUsuario.jsp">Registrarse</a></div>
                 <div id="li"><a href="CarroAdicional.jsp">Añadir carro</a></div>
-                <div id="li"><a href="BuscarMiCarro.jsp">Buscar mi carro</a></div>
+                <div id="li"><a href="BuscarMiCarro.jsp">Añadir Persona</a></div>
                 <div id="li"><a href="comoFunciona.jsp">¿Cómo funciona?</a></div>
                 <div id="li"><a href="contactanos.jsp">Contactanos</a></div>
                 <div id="li"><a href="servicios.jsp">Servicios Adicionales</a></div>

@@ -57,6 +57,13 @@ public class Usuario_dao {
         ConexionPostgres.desconectar();
         return user;
     }
+    
+    public String buscarUsuario(Long cod) throws Exception {        
+        ConexionPostgres.conectar();
+        String rst = ConexionPostgres.getTablaHTML("SELECT * FROM usuario where codigo= '" + cod + "'");
+        ConexionPostgres.desconectar();
+        return rst;
+    }
 
     public boolean existeUsuario(Long cod) throws Exception {
         boolean user = false;

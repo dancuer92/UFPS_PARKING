@@ -1,6 +1,6 @@
 <%-- 
-    Document   : RegistrarEntrada
-    Created on : 24/06/2015, 12:29:20 AM
+    Document   : RegistrarSalida
+    Created on : 24/06/2015, 02:16:33 AM
     Author     : Daniel
 --%>
 
@@ -21,16 +21,14 @@
     String msj = "";
 
     String codigo = request.getParameter("codigo");
-    
 
     carros = facade.listarCarros(codigo);
 
     String[] placas = carros.split("-");
     for (int i = 0; i < placas.length; i++) {
-        msj+="<option name=\"placa"+i+"\" id=\"placa"+i+"\" value=\""+placas[i]+"\"/option>";
+        msj += "<option name=\"placa" + i + "\" id=\"placa" + i + "\" value=\"" + placas[i] + "\">" + placas[i] + "</option>";
     }
-    
-    
+
 
 %>
 
@@ -46,20 +44,20 @@
 
         <div id="contenido">
 
-            <form id="formRegistrarEntrada" name="formRegistrarEntrada" method="post" action="guardarEntrada.jsp">
+            <form id="formRegistrarSalida" name="formRegistrarSalida" method="post" action="guardarSalida.jsp">
                 <div id="codigo">Usuario: <%= codigo%></div>
-                <input type="hidden" name="codigo" id="codigo" value="<%= codigo%>"/>;
+                <input type="hidden" name="codigo" id="codigo" value="<%= codigo%>"/>
                 <select name="placas">
                     <%=msj%>
                 </select>
-                
-                <div id="boton"  align="center"><a href="guardarEntrada.jsp"><button name="registrar" type="submit" value="registrar">Guardar Entrada</button></a></div>;
+
+                <div id="boton"  align="center"><a href="guardarSalida.jsp"><button name="registrar" type="submit" value="registrar">Guardar Entrada</button></a></div>;
             </form>
-            
-            
-               
-            
-            
+
+
+
+
+
 
             <a href="inicio.jsp" align="center">Volver a Inicio</a>
 
@@ -80,3 +78,4 @@
     </div>
 </body>
 </html>
+

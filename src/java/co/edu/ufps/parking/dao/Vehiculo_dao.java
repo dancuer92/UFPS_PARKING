@@ -55,6 +55,14 @@ public class Vehiculo_dao {
         return car;
     }
     
+    public String consultarVehiculo(String placa) throws Exception {
+        
+        ConexionPostgres.conectar();
+        String rst = ConexionPostgres.getTablaHTML("SELECT * FROM vehiculo where placa= '" + placa + "'");
+        ConexionPostgres.desconectar();
+        return rst;
+    }
+    
     public boolean existeVehiculo(String placa) throws Exception {
         boolean car = false;
         ConexionPostgres.conectar();

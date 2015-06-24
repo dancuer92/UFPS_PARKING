@@ -45,4 +45,41 @@ public class IngresoSalida_dao {
         return rta;
     }
     
+    public boolean registrarSalida(Usuario_dto user, Vehiculo_dto carro, Date fechaSalida) throws Exception {
+        boolean rta = false;
+
+        try {
+            ConexionPostgres.conectar();
+            PreparedStatement ps;
+            String sql = "UPDATE ingreso_salida SET hora_salida=?"
+                    + "WHERE usuario='"+user.getCodigo()+"' AND placa='"+carro.getPlaca()+"' AND hora_salida is Null";
+                    
+
+            ps = ConexionPostgres.getConnection().prepareStatement(sql);
+
+            
+            ps.setDate(1, (java.sql.Date) fechaSalida);
+            
+            ps.execute();
+            rta = true;
+            ps.close();
+            ps = null;
+            ConexionPostgres.desconectar();
+        } catch (Exception e) {
+            e.printStackTrace();
+            rta = false;
+        }
+
+        return rta;
+    }
+    
+    public String listarEntradasSalidas(long cod) throws SQLException{
+//        
+               
+        ConexionPostgres.conectar();
+        String rst = ConexionPostgres.getTablaHTML("SELECT * FROM ingreso_salida where usuario= '" + cod + "' LIMIT 5");
+        ConexionPostgres.desconectar();
+        return rst;
+        
+    }
 }

@@ -253,6 +253,8 @@ public class Negocio {
         return rta;
     }
 
+    
+    
     public String añadirPersona(String placa, long codigo, String nombre, String apellido, long telefono, String correo) {
         String rta = "";
 
@@ -355,4 +357,81 @@ public class Negocio {
     }
     
 
+    public String registrarSalida(long codigo, String placa) {
+        String rta = "";
+
+        try {
+            
+            System.out.println(codigo);
+            Vehiculo_dto carro = this.vehiculo.getVehiculo(placa);
+            Usuario_dto user = this.usuario.getUsuario(codigo);
+            
+            
+            boolean insertSalida = false;
+
+            if (!user.equals(null)) {
+                
+                Date fecha= new Date();
+                
+                insertSalida= this.ingresoSalida.registrarSalida(user, carro, fecha);
+
+                if (insertSalida) {
+                    //negar el if
+                    rta = "la salida del vehiculo ha sido añadido exitosamente";
+                } else {
+                    throw new Exception("Error, no se puede guardar la salida del parqueadero");
+                }
+
+            }
+            else {
+                throw new Exception("Error, el usuario no existe en el sistema");
+            }
+
+        } catch (NumberFormatException nf) {
+            nf.printStackTrace();
+            rta = "Datos invalidos.";
+        } catch (Exception e) {
+            e.printStackTrace();
+            rta = "Se ha producido un error.";
+        }
+
+        return rta;
+    }
+    
+    public String listarEntradasSalidas(long codigo){
+        String rta="";
+        try {            
+            rta=this.ingresoSalida.listarEntradasSalidas(codigo);            
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            rta = "Se ha producido un error en la carga de los vehiculos de la persona";
+        }
+        
+        return rta;
+    }
+    
+    public String buscarUSer(long codigo){
+        String rta="";
+        try {            
+            rta=this.usuario.buscarUsuario(codigo);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            rta = "el usuario no existe";
+        }
+        
+        return rta;
+    }
+    
+    public String consultarCarro(String placa){
+        String rta="";
+        try {            
+            rta=this.vehiculo.consultarVehiculo(placa);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            rta = "el vehiculo no existe";
+        }
+        
+        return rta;
+    }
 }
