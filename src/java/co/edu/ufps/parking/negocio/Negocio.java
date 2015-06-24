@@ -10,6 +10,10 @@ import java.util.List;
 import co.edu.ufps.parking.dao.*;
 import co.edu.ufps.parking.dto.*;
 import co.edu.ufps.parking.util.*;
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,11 +24,14 @@ public class Negocio {
     private Usuario_dao usuario;
     private Vehiculo_dao vehiculo;
     private UsuarioVehiculo_dao usuarioVehiculo;
-
+    private IngresoSalida_dao ingresoSalida;
+    
+    
     public Negocio() {
         this.usuario = new Usuario_dao();
         this.vehiculo = new Vehiculo_dao();
         this.usuarioVehiculo = new UsuarioVehiculo_dao();
+        this.ingresoSalida = new IngresoSalida_dao();
     }
     
     
@@ -285,5 +292,67 @@ public class Negocio {
 
         return rta;
     }
+    
+    public String listarCarros(long codigo){
+        String rta="";
+        ArrayList<String> carros=new ArrayList<String>();
+        try {            
+            carros=this.usuarioVehiculo.listarCarros(codigo);
+            
+            for(String carro:carros){
+                rta+=carro+"-";
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            rta = "Se ha producido un error en la carga de los vehiculos de la persona";
+        }
+        
+        return rta;
+    }
+    
+    
+    public String registrarEntrada(long codigo, String placa) {
+        String rta = "";
+
+        try {
+            
+            System.out.println(codigo);
+            Vehiculo_dto carro = this.vehiculo.getVehiculo(placa);
+            Usuario_dto user = this.usuario.getUsuario(codigo);
+            
+            
+            boolean insertEntrada = false;
+
+            if (!user.equals(null)) {
+                
+                Date fecha= new Date();
+                
+                
+                insertEntrada= this.ingresoSalida.registrarEntrada(user, carro, fecha);
+
+                if (insertEntrada) {
+                    //negar el if
+                    rta = "la entrada del vehiculo ha sido añadido exitosamente";
+                } else {
+                    throw new Exception("Error, no se puede guardar el ingreso al parqueadero");
+                }
+
+            }
+            else {
+                throw new Exception("Error, el usuario no existe en el sistema");
+            }
+
+        } catch (NumberFormatException nf) {
+            nf.printStackTrace();
+            rta = "Datos invalidos.";
+        } catch (Exception e) {
+            e.printStackTrace();
+            rta = "Se ha producido un error.";
+        }
+
+        return rta;
+    }
+    
 
 }

@@ -9,6 +9,7 @@ package co.edu.ufps.parking.facade;
 import co.edu.ufps.parking.dto.Vigilante_dto;
 import co.edu.ufps.parking.negocio.Negocio;
 import co.edu.ufps.parking.negocio.VerificarSesion;
+import java.util.ArrayList;
 
 /**
  *
@@ -49,6 +50,16 @@ public class Facade {
     
     public Vigilante_dto verificarLogin(Vigilante_dto vigilante){
         return this.mySesion.verificarLogin(vigilante);
+    }
+    
+    public String listarCarros(String codigo){
+        long cod = Long.parseLong(codigo);
+        return this.myNegocio.listarCarros(cod);
+    }
+    
+    public String registrarEntrada(String codigo, String placa){
+        long cod = Long.parseLong(codigo);
+        return this.myNegocio.registrarEntrada(cod, placa);
     }
 
 }

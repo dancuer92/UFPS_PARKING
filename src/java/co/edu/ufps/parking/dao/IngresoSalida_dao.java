@@ -10,29 +10,27 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 /**
  *
  * @author Daniel
- * 
- * este sera un cambio muy basico
- * 
  */
-public class UsuarioVehiculo_dao {
+public class IngresoSalida_dao {
     
-    
-    public boolean registrarUsuarioVehiculo(Usuario_dto user, Vehiculo_dto carro) throws Exception {
+    public boolean registrarEntrada(Usuario_dto user, Vehiculo_dto carro, Date fechaIng) throws Exception {
         boolean rta = false;
 
         try {
             ConexionPostgres.conectar();
             PreparedStatement ps;
-            String sql = "INSERT INTO usuario_vehiculo (usuario, placa) "
-                    + "VALUES (?,?)";
+            String sql = "INSERT INTO ingreso_salida (usuario, placa, hora_ingreso) "
+                    + "VALUES (?,?,?)";
 
             ps = ConexionPostgres.getConnection().prepareStatement(sql);
 
             ps.setLong(1, user.getCodigo());
             ps.setString(2, carro.getPlaca());
+            ps.setDate(3, (java.sql.Date) fechaIng);
             
             ps.execute();
             rta = true;
@@ -47,18 +45,4 @@ public class UsuarioVehiculo_dao {
         return rta;
     }
     
-    public ArrayList<String> listarCarros(long cod) throws SQLException{
-//        
-        ArrayList<String> myVehiculos=new ArrayList<String>();        
-        ConexionPostgres.conectar();
-        ResultSet rst = ConexionPostgres.ejecutarSQL("SELECT * FROM usuario_vehiculo where usuario= '" + cod + "'");
-
-        while (rst.next()) {
-            String placa = rst.getString(2);
-            myVehiculos.add(placa);
-        }
-        ConexionPostgres.desconectar();
-        return myVehiculos;
-        
-    }
 }
