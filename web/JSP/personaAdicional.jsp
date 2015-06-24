@@ -31,7 +31,7 @@
             <div id="sesion" align="center">Registrar Usuario Adicional</div>
             
             <div id="contenido">
-                <form id="formRegistrarUsuario" name="formRegistrarUsuario" method="post" action="guardarRegistro_1.jsp"> 
+                <form id="formRegistrarUsuario" name="formRegistrarUsuario" method="post" action="guardarRegistroPersona.jsp"> 
                     <div id="registro">Código (estudiantil, docente, o administrativo)</div> 
                     <div id="registro"><input type="text" name="codigo" placeholder="Codigo" required/></div>
                     <br>

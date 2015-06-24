@@ -5,7 +5,10 @@
  */
 package co.edu.ufps.parking.facade;
 
+
+import co.edu.ufps.parking.dto.Vigilante_dto;
 import co.edu.ufps.parking.negocio.Negocio;
+import co.edu.ufps.parking.negocio.VerificarSesion;
 
 /**
  *
@@ -14,6 +17,7 @@ import co.edu.ufps.parking.negocio.Negocio;
 public class Facade {
 
     private Negocio myNegocio = new Negocio();
+    private VerificarSesion mySesion=new VerificarSesion();
 
     public String registrarUsuarioCarro(String codigo, String nombre, String apellido, String telefono, String correo, String placa,
             String marca, String modelo, String color) {
@@ -41,6 +45,10 @@ public class Facade {
         long cod = Long.parseLong(codigo);
         long tel = Long.parseLong(telefono);
         return this.myNegocio.añadirPersona(placa, cod, nombre, apellido, tel, correo);
+    }
+    
+    public Vigilante_dto verificarLogin(Vigilante_dto vigilante){
+        return this.mySesion.verificarLogin(vigilante);
     }
 
 }

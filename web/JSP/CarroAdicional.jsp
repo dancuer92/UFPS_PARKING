@@ -22,7 +22,7 @@
             <div id="sesion" align="center">Añadir Carro Adicional</div>
             
             <div id="contenido">
-                <form id="formRegistrarCarro" name="formRegistrarCarro" method="post" action="guardarRegistro_1.jsp">
+                <form id="formRegistrarCarro" name="formRegistrarCarro" method="post" action="guardarRegistroCarro.jsp">
                     
                     <div id="registro">Código de usuario</div> 
                     <div id="registro"><input type="text" name="codigo" placeholder="Digite el código de usuario" required/></div>
