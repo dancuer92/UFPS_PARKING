@@ -7,7 +7,7 @@ package co.edu.ufps.parking.dao;
 
 /**
  *
- * @author Daniel
+ * @author Daniel Y Manuel 
  */
 public class prueba {
     
