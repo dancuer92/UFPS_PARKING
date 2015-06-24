@@ -42,7 +42,7 @@
                     <div id="registro">
                         <%--<a href="RegistrarCarro.jsp"><button name="carroAdicional" type="submit" value="carros">Registrar Carro Adicional</button></a>                    
                         --%>
-                        <a href="guardarRegistro_1.jsp"><button name="terminarRegistro" type="submit" value="terminarRegistro">Terminar de Registrar</button></a>
+                        <a href="guardarRegistroCarro.jsp"><button name="terminarRegistro" type="submit" value="terminarRegistro">Terminar de Registrar</button></a>
                         
                     </div>
                         
