@@ -4,65 +4,31 @@
     Author     : frayban
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta UFPS Parking</title>
-    <link rel="stylesheet" type="text/css" href="../CSS/estilo.css">
-    <link rel="stylesheet" type="text/css" href="../CSS/movil.css">
-</head>
-<body>
-    <div id="encabezado">
-        <img src="../imagenes/banne_cursoft.jpg" alt=""/>
-    </div>
-
-
-    <div id="contenedor">
-
-        <div id="sesion" align="center">Bienvenido </div>
-
-        <jsp:useBean id="vigilante" scope="session" class="co.edu.ufps.parking.dto.Vigilante_dto"/>
-        <jsp:setProperty property="*" name="vigilante"/>
-        <jsp:useBean id="facade" scope="page" class="co.edu.ufps.parking.facade.Facade"/>
+<
+<jsp:useBean id="vigilante" scope="session" class="co.edu.ufps.parking.dto.Vigilante_dto"></jsp:useBean>
+        <jsp:useBean id="facade" scope="page" class="co.edu.ufps.parking.facade.Facade"></jsp:useBean>
         
         <%
             
             String mensaje = "";
-            
+            String codigo = request.getParameter("codigo");
+            String pass = request.getParameter("password");
+            System.out.println(codigo+ " " +pass);
+            vigilante.setCodigo(Long.parseLong(codigo));
+            vigilante.setPassword(pass);
 
             // verificar el login del usuario
-            vigilante = facade.verificarLogin(vigilante);
-            if (vigilante == null) {
+            boolean b = facade.verificarLogin(vigilante);
+            
+            if (!b) {
                 mensaje = "Datos erroneos, por favor verifique.";
+                response.sendRedirect("iniciarSesion.jsp");
             } else {
                 mensaje = "ok";
-            }
-
-            if (mensaje.equals("ok")) {
                 response.sendRedirect("inicio.jsp");
             }
+
 
                 
         %>
 
-
-        <div id="contenido">
-
-        </div>
-
-    </div>
-
-
-
-    <div id="footer" align="center">
-        <br><br>
-        Desarrollado por: Frayba Otalora - Manuel Saravia - Daniel Cuervo<br>
-        Copyright © 2015. Programa de Ingeniería de Sistemas - UFPS<br>
-        Desarrollo WEB
-        <br><br>
-
-
-    </div>
-</body>
-</html>

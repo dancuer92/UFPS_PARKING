@@ -25,6 +25,7 @@ public class Negocio {
     private Vehiculo_dao vehiculo;
     private UsuarioVehiculo_dao usuarioVehiculo;
     private IngresoSalida_dao ingresoSalida;
+    private Vigilante_dao vigilante;
     
     
     public Negocio() {
@@ -32,6 +33,7 @@ public class Negocio {
         this.vehiculo = new Vehiculo_dao();
         this.usuarioVehiculo = new UsuarioVehiculo_dao();
         this.ingresoSalida = new IngresoSalida_dao();
+        this.vigilante = new Vigilante_dao();
     }
     
     
@@ -451,5 +453,9 @@ public class Negocio {
         }
         
         return rta;
+    }
+
+    public boolean verificarLogin(Vigilante_dto vigilante) {
+        return this.vigilante.validarSesion(vigilante);
     }
 }

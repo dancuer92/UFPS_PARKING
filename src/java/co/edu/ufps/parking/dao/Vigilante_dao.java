@@ -5,9 +5,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import co.edu.ufps.parking.util.*;
 import co.edu.ufps.parking.dto.Vigilante_dto;
 import co.edu.ufps.parking.util.Conexion;
+import java.util.ArrayList;
 
 public class Vigilante_dao implements Serializable {
 
@@ -155,5 +156,17 @@ public class Vigilante_dao implements Serializable {
 		}
 		return rta;
 	}
+
+    public boolean validarSesion(Vigilante_dto v) {
+        String sql = "SELECT nombre FROM vigilante WHERE codigo = '"+v.getCodigo()+"' AND password = '"+v.getPassword()+"';";
+        ConexionPostgres.conectar();
+        ArrayList r = ConexionPostgres.getConsultaSQL(sql);
+        try{
+            String ssssss = r.get(0).toString().split("-")[0];
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+    }
 	
 }

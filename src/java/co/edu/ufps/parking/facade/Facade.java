@@ -48,8 +48,8 @@ public class Facade {
         return this.myNegocio.añadirPersona(placa, cod, nombre, apellido, tel, correo);
     }
     
-    public Vigilante_dto verificarLogin(Vigilante_dto vigilante){
-        return this.mySesion.verificarLogin(vigilante);
+    public boolean verificarLogin(Vigilante_dto vigilante){
+        return this.myNegocio.verificarLogin(vigilante);
     }
     
     public String listarCarros(String codigo){
