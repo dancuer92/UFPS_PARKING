@@ -61,4 +61,19 @@ public class UsuarioVehiculo_dao {
         return myVehiculos;
         
     }
+    
+    public ArrayList<String> listarCarros2(long cod) throws SQLException{
+//        
+        ArrayList<String> myVehiculos=new ArrayList<String>();        
+        ConexionPostgres.conectar();
+        ResultSet rst = ConexionPostgres.ejecutarSQL("SELECT * FROM ingreso_salida where usuario= '" + cod + "' AND hora_salida is null");
+
+        while (rst.next()) {
+            String placa = rst.getString(2);
+            myVehiculos.add(placa);
+        }
+        ConexionPostgres.desconectar();
+        return myVehiculos;
+        
+    }
 }

@@ -22,7 +22,7 @@
 
     String codigo = request.getParameter("codigo");
 
-    carros = facade.listarCarros(codigo);
+    carros = facade.listarCarros2(codigo);
 
     String[] placas = carros.split("-");
     for (int i = 0; i < placas.length; i++) {
@@ -51,7 +51,7 @@
                     <%=msj%>
                 </select>
 
-                <div id="boton"  align="center"><a href="guardarSalida.jsp"><button name="registrar" type="submit" value="registrar">Guardar Entrada</button></a></div>;
+                <div id="boton"  align="center"><a href="guardarSalida.jsp"><button name="registrar" type="submit" value="registrar">Guardar Salida</button></a></div>
             </form>
 
 

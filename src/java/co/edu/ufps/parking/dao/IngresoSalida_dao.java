@@ -10,14 +10,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 /**
  *
  * @author Daniel
  */
 public class IngresoSalida_dao {
     
-    public boolean registrarEntrada(Usuario_dto user, Vehiculo_dto carro, Date fechaIng) throws Exception {
+    public boolean registrarEntrada(Usuario_dto user, Vehiculo_dto carro, String fechaIng) throws Exception {
         boolean rta = false;
 
         try {
@@ -30,7 +30,7 @@ public class IngresoSalida_dao {
 
             ps.setLong(1, user.getCodigo());
             ps.setString(2, carro.getPlaca());
-            ps.setDate(3, (java.sql.Date) fechaIng);
+            ps.setString(3, fechaIng);
             
             ps.execute();
             rta = true;
@@ -45,7 +45,7 @@ public class IngresoSalida_dao {
         return rta;
     }
     
-    public boolean registrarSalida(Usuario_dto user, Vehiculo_dto carro, Date fechaSalida) throws Exception {
+    public boolean registrarSalida(Usuario_dto user, Vehiculo_dto carro, String fechaSalida) throws Exception {
         boolean rta = false;
 
         try {
@@ -58,7 +58,7 @@ public class IngresoSalida_dao {
             ps = ConexionPostgres.getConnection().prepareStatement(sql);
 
             
-            ps.setDate(1, (java.sql.Date) fechaSalida);
+            ps.setString(1, fechaSalida);
             
             ps.execute();
             rta = true;

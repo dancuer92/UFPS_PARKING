@@ -313,6 +313,24 @@ public class Negocio {
         return rta;
     }
     
+    public String listarCarros2(long codigo){
+        String rta="";
+        ArrayList<String> carros=new ArrayList<String>();
+        try {            
+            carros=this.usuarioVehiculo.listarCarros2(codigo);
+            
+            for(String carro:carros){
+                rta+=carro+"-";
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            rta = "Se ha producido un error en la carga de los vehiculos de la persona";
+        }
+        
+        return rta;
+    }
+    
     
     public String registrarEntrada(long codigo, String placa) {
         String rta = "";
@@ -328,7 +346,7 @@ public class Negocio {
 
             if (!user.equals(null)) {
                 
-                Date fecha= new Date();
+                String fecha= new Date().toString();
                 
                 
                 insertEntrada= this.ingresoSalida.registrarEntrada(user, carro, fecha);
@@ -371,7 +389,7 @@ public class Negocio {
 
             if (!user.equals(null)) {
                 
-                Date fecha= new Date();
+                String fecha= new Date().toString();
                 
                 insertSalida= this.ingresoSalida.registrarSalida(user, carro, fecha);
 

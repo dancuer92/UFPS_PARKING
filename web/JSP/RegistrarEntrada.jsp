@@ -27,7 +27,7 @@
 
     String[] placas = carros.split("-");
     for (int i = 0; i < placas.length; i++) {
-        msj+="<option name=\"placa"+i+"\" id=\"placa"+i+"\" value=\""+placas[i]+"\"/option>";
+        msj+="<option name=\"placa"+i+"\" id=\"placa"+i+"\" value=\""+placas[i]+"\">"+placas[i]+"</option>";
     }
     
     
@@ -48,12 +48,12 @@
 
             <form id="formRegistrarEntrada" name="formRegistrarEntrada" method="post" action="guardarEntrada.jsp">
                 <div id="codigo">Usuario: <%= codigo%></div>
-                <input type="hidden" name="codigo" id="codigo" value="<%= codigo%>"/>;
+                <input type="hidden" name="codigo" id="codigo" value="<%= codigo%>"/>
                 <select name="placas">
                     <%=msj%>
                 </select>
                 
-                <div id="boton"  align="center"><a href="guardarEntrada.jsp"><button name="registrar" type="submit" value="registrar">Guardar Entrada</button></a></div>;
+                <div id="boton"  align="center"><a href="guardarEntrada.jsp"><button name="registrar" type="submit" value="registrar">Guardar Entrada</button></a></div>
             </form>
             
             

@@ -37,7 +37,7 @@
                 <div id="registro"><input type="text" name="codigo" placeholder="Codigo" required/></div>
                 <br>
 
-                <div id="boton"  align="center"><a href="ConsultaES.jsp"><button name="ConsultaEntrada" type="submit" value="Consultar">Consultar Entrada</button></a></div>
+                <div id="boton"  align="center"><a href="ConsultaES.jsp"><button name="ConsultaEntrada" type="submit" value="Consultar">Consultar Entrada y Salida</button></a></div>
 
 
                 <%--<button name="cmdRegistrarUsuario" id="cmdRegistrarUsuario" value="Registrar Usuario"/>Registrar Usuario</button>

@@ -57,6 +57,11 @@ public class Facade {
         return this.myNegocio.listarCarros(cod);
     }
     
+    public String listarCarros2(String codigo){
+        long cod = Long.parseLong(codigo);
+        return this.myNegocio.listarCarros2(cod);
+    }
+    
     public String registrarEntrada(String codigo, String placa){
         long cod = Long.parseLong(codigo);
         return this.myNegocio.registrarEntrada(cod, placa);

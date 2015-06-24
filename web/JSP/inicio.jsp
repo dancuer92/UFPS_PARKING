@@ -30,7 +30,7 @@
             <div id="menu" ><h1>ENTRADAS</h1>
 
                 <div id="li"><a href="Entrada.jsp">Registrar Entrada</a> </div>
-                <div id="li"><a href="Salida.jsp">Registrar Salida</a></div>
+                <div id="li"><a href="salida.jsp">Registrar Salida</a></div>
                 <div id="li"><a href="ConsultarEntradaSalida.jsp">Consultar Entrada y Salidas de un Usuario</a></div>
                 <div id="li"><a href="ConsultarUsuario.jsp">Consultar Usuario</a></div>
                 <div id="li"><a href="ConsultarVehiculo.jsp">Consultar Vehículo</a></div>                
