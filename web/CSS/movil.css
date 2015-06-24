@@ -1,0 +1,111 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18/04/2015, 04:09:08 PM
+    Author     : frayban
+*/
+
+@media screen and (max-width: 1000px){
+
+ #encabezado{
+  width:98%;
+  height: auto;
+ margin: 0 auto;
+ margin-top: 1%;
+  
+}
+
+#encabezado img{
+    min-height: 120px;
+}
+
+#sesion{
+    font-size: 160%;
+}
+ 
+  #contenedor{
+  width:100%;
+  height: auto;
+  margin-top: 1%;
+  min-height: 500px;
+ 
+  
+}
+
+#menu{
+    width: 95%;
+    margin-top: 3px; 
+    text-align: center;
+             
+               
+    }
+            
+  #li{
+  
+ 
+  border:none;
+  float:left;
+  }
+          
+  #li a {
+    
+    text-decoration:none;
+    font-family:Consolas;
+    font-size: 150%;
+    padding: 10px 12px;
+    border-radius: 0;
+    text-align: center;
+    
+            
+            }
+            
+  #li a:hover {
+    background-color:#FA5858;
+    border-radius: 10px;
+  }
+  
+  
+  
+  
+  #imgindex{
+      width: 92%;
+      margin-top: 5%;
+      margin-left: 5%;
+      height: 350px;
+      
+  }
+  
+  
+  
+ #footer{
+    border-top: 3px solid #FA5858 ;
+    width: 100%;
+    margin:0 auto;
+    margin-top: 3%;
+    font-weight: bold;
+    font-family: Consolas;
+    font-size: 110%;
+}
+
+#contenido input{
+        
+      width: 120%;
+     }
+
+  #contenido1 input{
+        
+      width: 120%;
+     }   
+     
+  #contenido1{
+         margin-top: 10%;
+     }
+
+ #registro1 textArea{
+      width: 120%;
+      }
+     
+}
